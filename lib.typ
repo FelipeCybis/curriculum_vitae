@@ -72,7 +72,7 @@
 /// - body (content): The body of the right header
 #let secondary-right-header(body) = {
   set text(
-    size: 11pt,
+    size: 12pt,
     weight: "medium",
   )
   body
@@ -94,7 +94,7 @@
 #let justified-header(primary, secondary) = {
   set block(
     above: 0.7em,
-    below: 0.7em,
+    below: 0.65em,
   )
   pad[
     #__justify_align[
@@ -152,7 +152,7 @@
   set text(
     font: ("Source Sans Pro", "Source Sans 3"),
     lang: language,
-    size: 11pt,
+    size: 10pt,
     fill: color-darkgray,
     fallback: true,
   )
@@ -163,7 +163,7 @@
     footer: [
       #set text(
         fill: gray,
-        size: 8pt,
+        size: 9pt,
       )
       #__justify_align_3[
         #smallcaps[#date]
@@ -184,7 +184,7 @@
   // set paragraph spacing
   show par: set block(
     above: 0.75em,
-    below: 0.75em,
+    below: 0.7em,
   )
   set par(justify: true)
   
@@ -234,10 +234,10 @@
   
   let name = {
     align(center)[
-      #pad(bottom: 5pt)[
+      #pad(bottom: 0pt)[
         #block[
           #set text(
-            size: 32pt,
+            size: 28pt,
             style: "normal",
             font: ("Roboto"),
           )
@@ -255,10 +255,12 @@
       weight: "regular",
     )
     align(center)[
-      #smallcaps[
-        #author.positions.join(
-          text[#"  "#sym.dot.c#"  "],
-        )
+      #pad(bottom: -5pt)[
+        #smallcaps[
+          #author.positions.join(
+            text[#"  "#sym.dot.c#"  "],
+          )
+        ]
       ]
     ]
   }
@@ -269,7 +271,9 @@
       weight: "bold",
     )
     align(center)[
-      #author.address
+      #pad(bottom: -7pt)[
+        #author.address
+      ]
     ]
   }
   
@@ -324,12 +328,12 @@
 /// - body (content): The body of the resume entry
 #let resume-item(body) = {
   set text(
-    size: 10pt,
+    size: 9pt,
     style: "normal",
     weight: "light",
     fill: color-darknight,
   )
-  set par(leading: 0.65em)
+  set par(leading: 0.55em)
   body
 }
 
@@ -345,6 +349,7 @@
   description: "",
   accent-color: default-accent-color,
 ) = {
+  v(-2pt)
   pad[
     #justified-header(title, location)
     #secondary-justified-header(description, date)
