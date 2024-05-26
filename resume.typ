@@ -1,4 +1,4 @@
-#import "lib/lib.typ": *
+#import "lib.typ": *
 #import "resume/experience.typ": experiences
 #import "resume/education.typ": education
 #import "resume/skills.typ": skills
