@@ -15,7 +15,7 @@
   fa-icon("github", fa-set: "Brands", fill: color-darknight),
 )
 // for some reason this icon doesn't work with fa-icon, so we use the local version
-#let phone-icon = box(image("assets/icons/square-phone-solid.svg"))
+#let phone-icon = box(fa-square-phone(fill: color-darknight))
 #let email-icon = box(fa-icon("envelope", fill: color-darknight))
 
 /// Helpers
