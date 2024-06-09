@@ -26,20 +26,20 @@ resume-entry(
 )
 v(3pt)
 resume-item[
-  -  #underline(offset: 2pt)[Adviser:] Alexandra Vaccaro, PhD, and Dragana Rogulja, PI.
+  -  #underline(offset: 2pt)[Adviser:] Dragana Rogulja, PI, and Alexandra Vaccaro, PhD.
   - #underline(offset: 2pt)[Focus:] Insights in sleep deprivation in _Drosophila melanogaster_.
   - #underline(offset: 2pt)[Techniques:] *_Drosophila melanogaster_ rearing ‑ Immunostaining ‑ Confocal microscopy ‑ Ethological analysis ‑ Survival and Dietary assays ‑ Drosophila Activity Monitoring (DAM) system*
 ]
 
 resume-entry(
-  title: link("https://iconeus.com")[ICONEUS, Real-time portable functional ultrasound small animal neuroimaging],
+  title: link("https://iconeus.com")[ICONEUS],
   location: "Paris, France",
   date: "July 2018 - December 2018",
   description: "R&D Intern ",
 )
 v(3pt)
 resume-item[
-  -  #underline(offset: 2pt)[Adviser:] Bruno Osmanski, PhD, and Mickaël Tanter, PI.
+  -  #underline(offset: 2pt)[Adviser:] Mickaël Tanter, PI, and Bruno Osmanski, PhD.
   - #underline(offset: 2pt)[Focus:] : Code optimization for transcranial multiplane wave ultrasound imaging.
   - #underline(offset: 2pt)[Techniques:] *Plane wave and Multiplane wave ultrasound imaging ‑ Power Doppler imaging ‑ Brain connectivity ‑ MATLAB ‑ Small animal brain imaging*
 

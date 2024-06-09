@@ -12,7 +12,7 @@ v(2pt)
 resume-item[
   - Scholarship student for the PSL Graduate Program in Life Sciences.
   - Courses bridging the interface of engineering and neurosciences ranging from Neurophysiology and Drug Design to Sensory and Motor supplementation to Deep learning and Neuroimaging.
-  - Final rank 4/23 ‑ Grade A (mention Bien).
+  - Grade A (mention Bien).
 ]
 
 resume-entry(
@@ -25,7 +25,7 @@ v(2pt)
 resume-item[
   - _Michelin Excellency_ scholarship student in a double degree program with UFSC University in Brazil.
   - Final year covering the bioengineering interface with Medical Imaging, Synthetic Biology, Biophysics and Big Data courses.
-  - Final year rank 27/94 ‑ Grade A+ (mention Très Bien).
+  - Grade A+ (mention Très Bien).
 ]
 
 resume-entry(
