@@ -103,3 +103,18 @@ The project is licensed under the MIT license. See [LICENSE](LICENSE) for more d
 
 | [<img src="https://avatars0.githubusercontent.com/u/6591180?s=460&v=4" width="100"><br><sub>@DeveloperPaul123</sub>](https://github.com/DeveloperPaul123) |
 |:----:|
+
+## My fork
+
+I (https://github.com/FelipeCybis) use this fork to hold my personal CV,
+compiled on the `gh-pages` branch. The workflow is as follows.
+
+```bash
+typst compile resume.pdf
+git add resume.pdf
+git stash
+git switch gh-pages
+git checkout stash -- resume.pdf
+git commit -m "comile pdf"
+git push
+```
