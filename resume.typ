@@ -38,25 +38,27 @@
   #v(-4pt)
 ]
 
-#v(-2pt)
+#v(-1pt)
 = Research Experience` `#fa-flask()` `
 
 #experiences
 
-#v(-2pt)
+#v(-1pt)
 = Teaching experience` `#fa-chalkboard-teacher()` `
 
 #teaching
 
-#v(-2pt)
+#v(-1pt)
 = Education background` ` #fa-graduation-cap()` `
 
 #education
 
+#v(2pt)
 = Skills` `#fa-globe-americas()` `
 
 #skills
 
+#v(1pt)
 = Hobbies` `#fa-user-group()` `
 
 #extras
