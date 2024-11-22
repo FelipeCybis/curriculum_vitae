@@ -24,20 +24,17 @@
   colored-headers: true,
 )
 #show heading.where(level: 1): it => [
-    #set block(
-      above: 1em,
-      below: 1em,
-    )
-    #set text(
-      size: 16pt,
-      weight: "regular",
-    )
-    
-    #align(left)[
-      #text[#strong[#text(default-accent-color)[#it.body]]]
-      #box(width: 1fr, line(length: 100%))
-    ]
+  #set text(
+    size: 16pt,
+    weight: "bold",
+  )
+
+  #align(left)[
+    #text[#strong[#text(default-accent-color)[#it.body]]]
+    #box(width: 1fr, line(length: 100%))
   ]
+  #v(-4pt)
+]
 
 = Experience` `#fa-flask()` `
 
