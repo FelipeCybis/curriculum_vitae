@@ -1,5 +1,6 @@
 #import "lib.typ": *
 #import "resume/experience.typ": experiences
+#import "resume/teaching.typ": teaching
 #import "resume/education.typ": education
 #import "resume/skills.typ": skills
 #import "resume/extras.typ": extras
@@ -12,12 +13,13 @@
     lastname: "Cybis Pereira",
     email: "felipe.cybispereira@gmail.com",
     phone: "(+33) 6 02 17 62 62",
+    website: "felipecybis.github.io",
     github: "FelipeCybis",
-    linkedin: "",
+    linkedin: "felipe-cybis-pereira-52ba0214b",
+    orcid: "0009-0009-6124-0466",
+    bluesky: "felipecybis.bsky.social",
     address: "55 rue Greneta, 75002, Paris, France",
-    positions: (
-      "BSc in Brazil - MSc in France",
-    ),
+    positions: ("BSc in Brazil - MSc in France - PhD candidate",),
   ),
   date: datetime.today().display(),
   language: "en",
@@ -36,9 +38,13 @@
   #v(-4pt)
 ]
 
-= Experience` `#fa-flask()` `
+= Research Experience` `#fa-flask()` `
 
 #experiences
+
+= Teaching experience` `#fa-chalkboard-teacher()` `
+
+#teaching
 
 = Education background` ` #fa-graduation-cap()` `
 
@@ -47,8 +53,8 @@
 = Skills` `#fa-globe-americas()` `
 
 #skills
+#v(4pt)
 
-= Extracurricular activities` `#fa-user-group()` `
+= Hobbies` `#fa-user-group()` `
 
 #extras
-

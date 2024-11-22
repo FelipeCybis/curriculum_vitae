@@ -9,11 +9,13 @@
 
 // const icons
 #let linkedin-icon = box(
-  fa-icon("linkedin", fa-set: "Brands", fill: color-darknight),
+  fa-linkedin(fill: color-darknight),
 )
 #let github-icon = box(
-  fa-icon("github", fa-set: "Brands", fill: color-darknight),
+  fa-github(fill: color-darknight),
 )
+#let orcid-icon = box(fa-orcid(fill: color-darknight))
+#let bluesky-icon = box(fa-bluesky(fill: color-darknight))
 // for some reason this icon doesn't work with fa-icon, so we use the local version
 #let phone-icon = box(fa-square-phone(fill: color-darknight))
 #let email-icon = box(fa-icon("envelope", fill: color-darknight))
@@ -59,7 +61,7 @@
 /// -> none
 #let github-link(github-path) = {
   set box(height: 11pt)
-  
+
   align(right + horizon)[
     #fa-icon("github", fa-set: "Brands", fill: color-darkgray) #link(
       "https://github.com/" + github-path,
@@ -78,7 +80,7 @@
   body
 }
 
-/// Right section of a tertiaty headers. 
+/// Right section of a tertiaty headers.
 /// - body (content): The body of the right header
 #let tertiary-right-header(body) = {
   set text(
@@ -93,7 +95,7 @@
 /// - secondary (content): The secondary section of the header
 #let justified-header(primary, secondary) = {
   set block(
-    above: 0.7em,
+    above: 0.8em,
     below: 0.65em,
   )
   pad[
@@ -121,7 +123,7 @@
 
 /// Resume template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
 ///
-/// The original template: https://github.com/posquit0/Awesome-CV 
+/// The original template: https://github.com/posquit0/Awesome-CV
 ///
 /// - author (content): Structure that takes in all the author's information
 /// - date (string): The date the resume was created
@@ -141,18 +143,18 @@
   if type(accent-color) == "string" {
     accent-color = rgb(accent-color)
   }
-  
+
   let lang_data = toml("lang.toml")
-  
+
   set document(
     author: author.firstname + " " + author.lastname,
     title: "resume",
   )
-  
+
   set text(
-    font: ("Source Sans Pro", "Source Sans 3"),
+    font: ("Calibri"),
     lang: language,
-    size: 10pt,
+    size: 11pt,
     fill: color-darkgray,
     fallback: true,
   )
@@ -239,11 +241,11 @@
   let positions = {
     set text(
       accent-color,
-      size: 9pt,
+      size: 10pt,
       weight: "regular",
     )
     align(center)[
-      #pad(bottom: -5pt)[
+      #pad(bottom: -4pt)[
         #smallcaps[
           #author.positions.join(
             text[#"  "#sym.dot.c#"  "],
@@ -259,20 +261,20 @@
       weight: "bold",
     )
     align(center)[
-      #pad(bottom: -7pt)[
+      #pad(bottom: -4pt)[
         #author.address
       ]
     ]
   }
-  
+
   let contacts = {
-    set box(height: 9pt)
-    
+    set box(height: 10pt)
+
     let separator = box(width: 5pt)
-    
+
     align(center)[
       #set text(
-        size: 9pt,
+        size: 10pt,
         weight: "regular",
         style: "normal",
       )
@@ -281,42 +283,46 @@
           #if author.phone != none [
             #phone-icon
             #box[#text(author.phone)]
-            #separator
           ]
           #if author.email != none [
-            #email-icon
-            #box[#link("mailto:" + author.email)[#author.email]]
+            #separator
+            #link("mailto:" + author.email)[#email-icon #box[#author.email]]
+          ]
+          #if author.website != none [
+            #separator
+            #link("https://" + author.website)[#box[#fa-hand-pointer(fill: color-darkgray)
+                #author.website]]
           ]
           #if author.github != none [
             #separator
-            #github-icon
-            #box[#link("https://github.com/" + author.github)[#author.github]]
+            #link("https://github.com/" + author.github)[#github-icon]
+          ]
+          #if author.orcid != none [
+            #link("https://orcid.org/" + author.orcid)[#orcid-icon]
           ]
           #if author.linkedin != none [
-            #separator
-            #linkedin-icon
-            #box[
-              #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
-            ]
+            #link("https://www.linkedin.com/in/" + author.linkedin)[#linkedin-icon]
+          ]
+          #if author.bluesky != none [
+            #link("https://bsky.app/profile/" + author.bluesky)[#bluesky-icon]
           ]
         ]
       ]
     ]
   }
-  
+
   name
   positions
-  address
   contacts
   body
 }
 
-/// The base item for resume entries. 
+/// The base item for resume entries.
 /// This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
 /// - body (content): The body of the resume entry
 #let resume-item(body) = {
   set text(
-    size: 9pt,
+    size: 10pt,
     style: "normal",
     weight: "light",
     fill: color-darknight,
@@ -337,7 +343,6 @@
   description: "",
   accent-color: default-accent-color,
 ) = {
-  v(-2pt)
   pad[
     #justified-header(title, location)
     #secondary-justified-header(description, date)
