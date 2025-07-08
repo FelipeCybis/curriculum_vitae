@@ -8,12 +8,8 @@
 #let default-accent-color = rgb("#262F99")
 
 // const icons
-#let linkedin-icon = box(
-  fa-linkedin(fill: color-darknight),
-)
-#let github-icon = box(
-  fa-github(fill: color-darknight),
-)
+#let linkedin-icon = box(fa-linkedin(fill: color-darknight))
+#let github-icon = box(fa-github(fill: color-darknight))
 #let orcid-icon = box(fa-orcid(fill: color-darknight))
 #let bluesky-icon = box(fa-bluesky(fill: color-darknight))
 // for some reason this icon doesn't work with fa-icon, so we use the local version
@@ -152,7 +148,7 @@
   )
 
   set text(
-    font: ("Calibri"),
+    font: "Calibri",
     lang: language,
     size: 11pt,
     fill: color-darkgray,
@@ -229,9 +225,9 @@
           #set text(
             size: 28pt,
             style: "normal",
-            font: ("Roboto"),
+            font: "Montserrat",
           )
-          #text(fill: accent-color, weight: "thin")[#author.firstname]
+          #text(fill: accent-color, weight: "light")[#author.firstname]
           #text(weight: "bold")[#author.lastname]
         ]
       ]
@@ -247,9 +243,7 @@
     align(center)[
       #pad(bottom: -4pt)[
         #smallcaps[
-          #author.positions.join(
-            text[#"  "#sym.dot.c#"  "],
-          )
+          #author.positions.join(text[#"  "#sym.dot.c#"  "])
         ]
       ]
     ]
@@ -429,7 +423,7 @@
   )
 
   set text(
-    font: ("Source Sans Pro"),
+    font: "Source Sans Pro",
     lang: language,
     size: 11pt,
     fill: color-darkgray,
@@ -495,7 +489,7 @@
           #set text(
             size: 32pt,
             style: "normal",
-            font: ("Roboto"),
+            font: "Roboto",
           )
           #text(accent-color, weight: "thin")[#author.firstname]
           #text(weight: "bold")[#author.lastname]
@@ -512,9 +506,7 @@
     )
     align(right)[
       #smallcaps[
-        #author.positions.join(
-          text[#"  "#sym.dot.c#"  "],
-        )
+        #author.positions.join(text[#"  "#sym.dot.c#"  "])
       ]
     ]
   }
@@ -576,7 +568,7 @@
   let letter-heading = {
     grid(
       columns: (1fr, 2fr),
-      rows: (100pt),
+      rows: 100pt,
       align(left + horizon)[
         #block(
           clip: true,
@@ -601,7 +593,8 @@
       #pad(bottom: 2em)[
         #text(weight: "light")[#linguify("sincerely", from: lang_data)#sym.comma] \
         #text(weight: "bold")[#author.firstname #author.lastname] \ \
-        #text(weight: "light", style: "italic")[ #linguify(
+        #text(weight: "light", style: "italic")[
+          #linguify(
             "attached",
             from: lang_data,
           )#sym.colon #linguify("curriculum-vitae", from: lang_data)]

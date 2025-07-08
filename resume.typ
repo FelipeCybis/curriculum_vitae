@@ -19,7 +19,7 @@
     orcid: "0009-0009-6124-0466",
     bluesky: "felipecybis.bsky.social",
     address: "55 rue Greneta, 75002, Paris, France",
-    positions: ("BSc in Brazil - MSc in France - PhD candidate",),
+    positions: ("currently post-doc in Physics for Medicine Paris",),
   ),
   date: datetime.today().display(),
   language: "en",
@@ -86,6 +86,7 @@
 
 ]
 
+#v(-0.7em)
 - #cite(<lemeur-dieboltRobustFunctionalUltrasound2025>, form: "full")
 - #cite(<zuckerPhysiofUSTissuemotionBased2025>, form: "full")
 
