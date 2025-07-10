@@ -8,11 +8,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install fonts
         run: sudo apt-get install fonts-font-awesome fonts-roboto texlive-fonts-recommended texlive-fonts-extra
-      - name: Typst
-        uses: yusancky/setup-typst@v2
-        id: setup-typst
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
         with:
-          version: 'v0.11.0'
+          typst-version: 'v0.11.0'
       - run: typst compile modern-cv-docs.typ
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
