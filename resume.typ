@@ -82,11 +82,12 @@
 
 #[
   #set text(size: 0pt)
-  #bibliography("ref.bib", style: "apa", title:"Publications")
+  #bibliography("ref.bib", style: "apa", title:"Publications and preprints")
 
 ]
 
 #v(-0.7em)
+- #cite(<cybispereiraSpeedVascularPatterns2025>, form: "full")
 - #cite(<lemeur-dieboltRobustFunctionalUltrasound2025>, form: "full")
 - #cite(<zuckerPhysiofUSTissuemotionBased2025>, form: "full")
 
