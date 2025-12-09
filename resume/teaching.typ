@@ -5,7 +5,7 @@
   resume-entry(
     title: link("https://www.espci.psl.eu/en/")[ESPCI Paris - PSL University],
     location: "Paris, France",
-    date: "2022-2023 and 2023-2024",
+    date: "2022-2024",
     description: [Teacher assistant in the Physiology practical work for the 2nd year
       students],
   )
@@ -19,7 +19,7 @@
   resume-entry(
     title: link("https://neuropsi.cnrs.fr/en/homepage/")[NeuroPSI - Paris-Saclay Institute of Neuroscience],
     location: "Saclay, France",
-    date: "2023 and 2024",
+    date: "2023-2025",
     description: [Teacher assistant in the Masters 2 for Computational Neurosciences and
       Neuroengineering],
   )
