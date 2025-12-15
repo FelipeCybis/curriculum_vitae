@@ -1,4 +1,4 @@
-#import "@preview/modern-cv:0.7.0": *
+#import "@preview/modern-cv:0.9.0": *
 
 #show: resume.with(
   author: (
@@ -8,6 +8,8 @@
     homepage: "https://example.com",
     phone: "(+1) 111-111-1111",
     github: "DeveloperPaul123",
+    gitlab: "DeveloperPaul123",
+    bitbucket: "DeveloperPaul123",
     twitter: "typstapp",
     scholar: "",
     orcid: "0000-0000-0000-000X",
@@ -19,11 +21,24 @@
       "Software Architect",
       "Developer",
     ),
+    custom: (
+      (
+        text: "Youtube Channel",
+        icon: "youtube",
+        link: "https://example.com",
+      ),
+    ),
   ),
+  keywords: ("Engineer", "Architect"),
+  description: "John complete resume",
+  profile-picture: image("profile.png"),
   date: datetime.today().display(),
   language: "en",
   colored-headers: true,
   show-footer: false,
+  show-address-icon: true,
+  paper-size: "us-letter",
+  contact-items-separator: box[#h(2pt)#text("|")#h(2pt)],
 )
 
 = Experience
@@ -54,10 +69,7 @@
   #lorem(72)
 ]
 
-#resume-entry(
-  title: "Intern",
-  location: "Example City, EX",
-)
+#resume-entry(title: "Intern", location: "Example City, EX")
 
 #resume-item[
   - #lorem(20)
@@ -94,14 +106,62 @@
 = Skills
 
 #resume-skill-item(
-  "Languages",
-  (strong("C++"), strong("Python"), "Java", "C#", "JavaScript", "TypeScript"),
+  "Programming Languages",
+  (
+    strong("C++"),
+    strong("Python"),
+    "Rust",
+    "Java",
+    "C#",
+    "JavaScript",
+    "TypeScript",
+  ),
 )
 #resume-skill-item("Spoken Languages", (strong("English"), "Spanish"))
 #resume-skill-item(
   "Programs",
-  (strong("Excel"), "Word", "Powerpoint", "Visual Studio"),
+  (
+    strong("Excel"),
+    "Word",
+    "Powerpoint",
+    "Visual Studio",
+  ),
 )
+// spacing fix, not needed if you use `resume-skill-grid`
+#block(below: 0.65em)
+
+// An alternative way of list out your resume skills
+// #resume-skill-grid(
+//   categories_with_values: (
+//     "Programming Languages": (
+//       strong("C++"),
+//       strong("Python"),
+//       "Rust",
+//       "Java",
+//       "C#",
+//       "JavaScript",
+//       "TypeScript",
+//     ),
+//     "Spoken Languages": (
+//       strong("English"),
+//       "Spanish",
+//       "Greek",
+//     ),
+//     "Programs": (
+//       strong("Excel"),
+//       "Word",
+//       "Powerpoint",
+//       "Visual Studio",
+//       "git",
+//       "Zed"
+//     ),
+//     "Really Really Long Long Long Category": (
+//       "Thing 1",
+//       "Thing 2",
+//       "Thing 3"
+//     )
+//   ),
+// )
 
 = Education
 

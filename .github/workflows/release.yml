@@ -1,7 +1,7 @@
 name: Package and push to registry repo
 on:
-  push:
-    tags: [ '*' ]
+  release:
+    types: [published]
 
 env:
   # the repository to which to push the release version
@@ -14,7 +14,7 @@ env:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,9 +31,9 @@ jobs:
           crate: just
 
       - name: Setup typst
-        uses: typst-community/setup-typst@v3
+        uses: typst-community/setup-typst@v4
         with:
-          typst-version: latest
+          typst-version: ^0.13.0
 
       - name: Determine and check package metadata
         run: |
@@ -50,6 +50,11 @@ jobs:
         run: |
           just doc
           just package out
+
+      - name: Upload manual
+        run: gh release upload ${{ github.event.release.tag_name }} docs/manual.pdf
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Checkout package registry
         uses: actions/checkout@v4

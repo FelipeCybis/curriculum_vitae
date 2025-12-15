@@ -1,22 +1,22 @@
 name: Tests
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   tests:
     strategy:
       matrix:
         # add any other Typst versions that your package should support
-        typst-version: ["0.12"]
+        typst-version: ["0.12", "0.13", "0.14"]
         # the docs don't need to build with all versions supported by the package;
         # the latest one is enough
         include:
-          - typst-version: "0.12"
+          - typst-version: "0.14"
             doc: 1
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,36 +37,37 @@ jobs:
         with:
           crate: just
 
-      - name: Install typst-test from github
-        uses: baptiste0928/cargo-install@v3
+      - name: Install tytanic
+        uses: taiki-e/cache-cargo-install-action@v2
         with:
-          crate: typst-test
-          git: https://github.com/tingerrr/typst-test.git
-          tag: ci-semi-stable
+          tool: tytanic@0.3.1
 
       - name: Setup typst
-        uses: typst-community/setup-typst@v3
+        uses: typst-community/setup-typst@v4
         with:
           typst-version: ${{ matrix.typst-version }}
-    
+
       - name: Install fonts
         run: |
-            sudo apt update
-            sudo apt-get install fonts-roboto
-            ./scripts/install-fontawesome
-            ./scripts/install-source-sans
+          sudo apt update
+          sudo apt-get install fonts-roboto
+          ./scripts/install-fontawesome
+          ./scripts/install-source-sans
+          typst fonts
 
-      - name: Install locally
-        run: just install
+      - name: Uninstall previous local install
+        run: just uninstall
 
       - name: Run test suite
-        run: just test
+        run: |
+          just install
+          tt run --font-path ~/.fonts --no-fail-fast
 
       - name: Archive diffs
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: diffs
+          name: diffs-typst-${{ matrix.typst-version }}
           path: |
             tests/**/diff/*.png
             tests/**/out/*.png
@@ -76,7 +77,7 @@ jobs:
       - name: Build docs
         if: ${{ matrix.doc }}
         run: just doc
-     
+
       - name: Upload docs
         uses: actions/upload-artifact@v4
         with:

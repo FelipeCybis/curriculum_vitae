@@ -1,4 +1,8 @@
-# Modern CV
+<h1 align="center">
+  <img src="assets/images/header.png" alt="Header">
+  <br><br>
+  Modern CV
+</h1>
 
 [![say thanks](https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg)](https://github.com/DeveloperPaul123/modern-cv/stargazers)
 [![Discord](https://img.shields.io/discord/652515194572111872?logo=Discord)](https://discord.gg/CX2ybByRnt)
@@ -6,6 +10,20 @@
 [![Tests](https://github.com/DeveloperPaul123/modern-cv/actions/workflows/tests.yml/badge.svg)](https://github.com/DeveloperPaul123/modern-cv/actions/workflows/tests.yml)  
 
 A port of the [Awesome-CV](https://github.com/posquit0/Awesome-CV) Latex resume template in [typst](https://github.com/typst/typst).
+
+## Features
+
+- Modern and clean design
+- Easy to use and customize (colors, profile picture, fonts, etc.)
+- Support for multiple sections (education, experience, skills, etc.)
+- Support for multiple languages
+
+## Preview
+
+| Resumes | Cover letters |
+| --- | --- |
+| ![Resume](assets/images/resume.png) | ![Cover Letter](assets/images/coverletter.png) |
+| ![Resume 2](assets/images/resume2.png) | ![Cover Letter 2](assets/images/coverletter2.png)|
 
 ## Requirements
 
@@ -38,7 +56,7 @@ See `typst fonts --help` for more information on configuring fonts for `typst` t
 Below is a basic example for a simple resume:
 
 ```typst
-#import "@preview/modern-cv:0.7.0": *
+#import "@preview/modern-cv:0.9.0": *
 
 #show: resume.with(
   author: (
@@ -54,7 +72,9 @@ Below is a basic example for a simple resume:
         "Software Architect"
       )
   ),
-  date: datetime.today().display()
+  profile-picture: none,
+  date: datetime.today().display(),
+  paper-size: "us-letter"
 )
 
 = Education
@@ -83,13 +103,6 @@ For more information on how to use and compile `typst` files, see the [official 
 
 Documentation for this template is published with each commit. See the attached PDF on each Github Action run [here](https://github.com/DeveloperPaul123/modern-cv/actions).
 
-### Output Examples
-
-| Resumes | Cover letters |
-| --- | --- |
-| ![Resume](assets/images/resume.png) | ![Cover Letter](assets/images/coverletter.png) |
-| ![Resume 2](assets/images/resume2.png) | ![Cover Letter 2](assets/images/coverletter2.png)|
-
 ## Building and Testing Locally
 
 To build and test the project locally, you will need to install the `typst` CLI. You can find instructions on how to do this [here](https://github.com/typst/typst#installation).
@@ -97,7 +110,7 @@ To build and test the project locally, you will need to install the `typst` CLI.
 With typst installed you can make changes to `lib.typ` and then `just install` or `just install-preview` to install the package locally. Change the import statements in the template files to point to the local package (if needed):
 
 ```typst
-#import "@local/modern-cv:0.6.0": *
+#import "@local/modern-cv:0.9.0": *
 ````
 
 If you use `just install-preview` you will only need to update the version number to match `typst.toml`.
