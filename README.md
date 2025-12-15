@@ -3,11 +3,22 @@
 [![say thanks](https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg)](https://github.com/DeveloperPaul123/modern-cv/stargazers)
 [![Discord](https://img.shields.io/discord/652515194572111872?logo=Discord)](https://discord.gg/CX2ybByRnt)
 ![Release](https://img.shields.io/github/v/release/DeveloperPaul123/modern-cv)
-[![Build documentation](https://github.com/DeveloperPaul123/modern-cv/actions/workflows/build-documentation.yml/badge.svg)](https://github.com/DeveloperPaul123/modern-cv/actions/workflows/build-documentation.yml)
+[![Tests](https://github.com/DeveloperPaul123/modern-cv/actions/workflows/tests.yml/badge.svg)](https://github.com/DeveloperPaul123/modern-cv/actions/workflows/tests.yml)  
 
 A port of the [Awesome-CV](https://github.com/posquit0/Awesome-CV) Latex resume template in [typst](https://github.com/typst/typst).
 
 ## Requirements
+
+### Tools
+
+The following tools are used for the development of this template:
+
+- [typst](https://github.com/typst/typst)
+- [typst-test](https://github.com/tingerrr/typst-test) for running tests
+- [just](https://github.com/casey/just) for simplifying command running
+- [oxipng](https://github.com/shssoichiro/oxipng) for compressing thumbnails used in the README
+
+### Fonts
 
 You will need the `Roboto` and `Source Sans Pro` fonts installed on your system or available somewhere. If you are using the `typst` web app, no further action is necessary. You can download them from the following links:
 
@@ -27,7 +38,7 @@ See `typst fonts --help` for more information on configuring fonts for `typst` t
 Below is a basic example for a simple resume:
 
 ```typst
-#import "@preview/modern-cv:0.1.0": *
+#import "@preview/modern-cv:0.7.0": *
 
 #show: resume.with(
   author: (
@@ -81,19 +92,21 @@ Documentation for this template is published with each commit. See the attached 
 
 ## Building and Testing Locally
 
-To build and test the project locally, you will need to install the `typst` CLI. You can find instructions on how to do this [here](https://typst.app/docs/getting-started).
+To build and test the project locally, you will need to install the `typst` CLI. You can find instructions on how to do this [here](https://github.com/typst/typst#installation).
 
-With typst installed you can make changes to `lib.typ` and then `install_package_locally.ps1` to install the package locally. Change the import statements in the template files to point to the local package:
+With typst installed you can make changes to `lib.typ` and then `just install` or `just install-preview` to install the package locally. Change the import statements in the template files to point to the local package (if needed):
 
 ```typst
-#import "@local/modern-cv:0.3.0": *
+#import "@local/modern-cv:0.6.0": *
 ````
+
+If you use `just install-preview` you will only need to update the version number to match `typst.toml`.
 
 Note that the script parses the `typst.toml` to determine the version number and the folder the local files are installed to.
 
 ### Formatting
 
-This project uses [typstyle](https://github.com/Enter-tainer/typstyle) to format the code. The script `format_typst.ps1` will format all the `*.typ` files in the project. Be sure to install `typstyle` before running the script.
+This project uses [typstyle](https://github.com/Enter-tainer/typstyle) to format the code. Run `just format` to format all the `*.typ` files in the project. Be sure to install `typstyle` before running the script.
 
 ## License
 

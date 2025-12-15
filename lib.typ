@@ -1,20 +1,34 @@
 #import "@preview/fontawesome:0.5.0": *
-#import "@preview/linguify:0.4.0": *
+#import "@preview/linguify:0.4.1": *
 
 // const color
 #let color-darknight = rgb("#131A28")
 #let color-darkgray = rgb("#333333")
 #let color-gray = rgb("#5d5d5d")
 #let default-accent-color = rgb("#262F99")
+#let default-location-color = rgb("#333333")
 
 // const icons
-#let linkedin-icon = box(fa-linkedin(fill: color-darknight))
-#let github-icon = box(fa-github(fill: color-darknight))
-#let orcid-icon = box(fa-orcid(fill: color-darknight))
-#let bluesky-icon = box(fa-bluesky(fill: color-darknight))
-// for some reason this icon doesn't work with fa-icon, so we use the local version
-#let phone-icon = box(fa-square-phone(fill: color-darknight))
+#let linkedin-icon = box(
+  fa-icon("linkedin", fill: color-darknight),
+)
+#let github-icon = box(
+  fa-icon("github", fill: color-darknight),
+)
+#let twitter-icon = box(
+  fa-icon("twitter", fill: color-darknight),
+)
+#let google-scholar-icon = box(
+  fa-icon("google-scholar", fill: color-darknight),
+)
+#let orcid-icon = box(
+  fa-icon("orcid", fill: color-darknight),
+)
+#let phone-icon = box(fa-icon("square-phone", fill: color-darknight))
 #let email-icon = box(fa-icon("envelope", fill: color-darknight))
+#let birth-icon = box(fa-icon("cake", fill: color-darknight))
+#let homepage-icon = box(fa-icon("home", fill: color-darknight))
+#let website-icon = box(fa-icon("globe", fill: color-darknight))
 
 /// Helpers
 
@@ -50,6 +64,54 @@
   ]
 }
 
+#let __coverletter_footer(author, language, date, lang_data) = {
+  set text(
+    fill: gray,
+    size: 8pt,
+  )
+  __justify_align_3[
+    #smallcaps[#date]
+  ][
+    #smallcaps[
+      #if language == "zh" or language == "ja" [
+        #author.firstname#author.lastname
+      ] else [
+        #author.firstname#sym.space#author.lastname
+      ]
+      #sym.dot.c
+      #linguify("cover-letter", from: lang_data)
+    ]
+  ][
+    #context {
+      counter(page).display()
+    }
+  ]
+}
+
+#let __resume_footer(author, language, lang_data, date) = {
+  set text(
+    fill: gray,
+    size: 8pt,
+  )
+  __justify_align_3[
+    #smallcaps[#date]
+  ][
+    #smallcaps[
+      #if language == "zh" or language == "ja" [
+        #author.firstname#author.lastname
+      ] else [
+        #author.firstname#sym.space#author.lastname
+      ]
+      #sym.dot.c
+      #linguify("resume", from: lang_data)
+    ]
+  ][
+    #context {
+      counter(page).display()
+    }
+  ]
+}
+
 /// Show a link with an icon, specifically for Github projects
 /// *Example*
 /// #example(`resume.github-link("DeveloperPaul123/awesome-resume")`)
@@ -59,7 +121,7 @@
   set box(height: 11pt)
 
   align(right + horizon)[
-    #fa-icon("github", fa-set: "Brands", fill: color-darkgray) #link(
+    #fa-icon("github", fill: color-darkgray) #link(
       "https://github.com/" + github-path,
       github-path,
     )
@@ -133,7 +195,9 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
   accent-color: default-accent-color,
   colored-headers: true,
+  show-footer: true,
   language: "en",
+  font: ("Source Sans Pro", "Source Sans 3"),
   body,
 ) = {
   if type(accent-color) == "string" {
@@ -142,13 +206,16 @@
 
   let lang_data = toml("lang.toml")
 
-  set document(
-    author: author.firstname + " " + author.lastname,
-    title: "resume",
-  )
+  show: body => context {
+    set document(
+      author: author.firstname + " " + author.lastname,
+      title: lflib._linguify("resume", lang: language, from: lang_data).ok,
+    )
+    body
+  }
 
   set text(
-    font: "Calibri",
+    font: font,
     lang: language,
     size: 11pt,
     fill: color-darkgray,
@@ -158,40 +225,41 @@
   set page(
     paper: "a4",
     margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
-    footer: [
-      #set text(
-        fill: gray,
-        size: 9pt,
-      )
-      #__justify_align_3[
-        #smallcaps[#date]
-      ][
-        #smallcaps[
-          #author.firstname
-          #author.lastname
-          #sym.dot.c
-          #linguify("resume", from: lang_data)
-        ]
-      ][
-        #context {
-          counter(page).display()
-        }
-      ]
-    ],
+    footer: if show-footer [#__resume_footer(
+        author,
+        language,
+        lang_data,
+        date,
+      )] else [],
     footer-descent: 0pt,
   )
 
   // set paragraph spacing
   set par(
-    justify: true,
     spacing: 0.75em,
+    justify: true,
   )
-
   set heading(
     numbering: none,
     outlined: false,
   )
-
+  
+  show heading.where(level: 1): it => [
+    #set text(
+      size: 16pt,
+      weight: "regular",
+    )
+    #set align(left)
+    #set block(above: 1em)
+    #let color = if colored-headers {
+      accent-color
+    } else {
+      color-darkgray
+    }
+    #text[#strong[#text(color)[#it.body.text]]]
+    #box(width: 1fr, line(length: 100%))
+  ]
+  
   show heading.where(level: 2): it => {
     set block(
       above: 0em,
@@ -227,8 +295,15 @@
             style: "normal",
             font: "Montserrat",
           )
-          #text(fill: accent-color, weight: "light")[#author.firstname]
-          #text(weight: "bold")[#author.lastname]
+          #if language == "zh" or language == "ja" [
+            #text(
+              accent-color,
+              weight: "thin",
+            )[#author.firstname]#text(weight: "bold")[#author.lastname]
+          ] else [
+            #text(accent-color, weight: "thin")[#author.firstname]
+            #text(weight: "bold")[#author.lastname]
+          ]
         ]
       ]
     ]
@@ -252,10 +327,10 @@
   let address = {
     set text(
       size: 9pt,
-      weight: "bold",
+      weight: "regular",
     )
     align(center)[
-      #pad(bottom: -4pt)[
+      #if ("address" in author) [
         #author.address
       ]
     ]
@@ -274,31 +349,54 @@
       )
       #block[
         #align(horizon)[
-          #if author.phone != none [
+          #if ("birth" in author) [
+            #birth-icon
+            #box[#text(author.birth)]
+            #separator
+          ]
+          #if ("phone" in author) [
             #phone-icon
             #box[#text(author.phone)]
           ]
-          #if author.email != none [
+          #if ("homepage" in author) [
             #separator
-            #link("mailto:" + author.email)[#email-icon #box[#author.email]]
+            #homepage-icon
+            #box[#link(author.homepage)[#author.homepage]]
           ]
-          #if author.website != none [
-            #separator
-            #link("https://" + author.website)[#box[#fa-hand-pointer(fill: color-darkgray)
-                #author.website]]
-          ]
-          #if author.github != none [
+          #if ("github" in author) [
             #separator
             #link("https://github.com/" + author.github)[#github-icon]
           ]
           #if author.orcid != none [
             #link("https://orcid.org/" + author.orcid)[#orcid-icon]
           ]
-          #if author.linkedin != none [
-            #link("https://www.linkedin.com/in/" + author.linkedin)[#linkedin-icon]
+          #if ("linkedin" in author) [
+            #separator
+            #linkedin-icon
+            #box[
+              #link("https://www.linkedin.com/in/" + author.linkedin)[#author.firstname #author.lastname]
+            ]
           ]
-          #if author.bluesky != none [
-            #link("https://bsky.app/profile/" + author.bluesky)[#bluesky-icon]
+          #if ("twitter" in author) [
+            #separator
+            #twitter-icon
+            #box[#link("https://twitter.com/" + author.twitter)[\@#author.twitter]]
+          ]
+          #if ("scholar" in author) [
+            #let fullname = str(author.firstname + " " + author.lastname)
+            #separator
+            #google-scholar-icon
+            #box[#link("https://scholar.google.com/citations?user=" + author.scholar)[#fullname]]
+          ]
+          #if ("orcid" in author) [
+            #separator
+            #orcid-icon
+            #box[#link("https://orcid.org/" + author.orcid)[#author.orcid]]
+          ]
+          #if ("website" in author) [
+            #separator
+            #website-icon
+            #box[#link(author.website)[#author.website]]
           ]
         ]
       ]
@@ -321,8 +419,14 @@
     weight: "light",
     fill: color-darknight,
   )
-  set par(leading: 0.55em)
-  body
+  set block(
+    above: 0.75em,
+    below: 1.25em,
+  )
+  set par(leading: 0.65em)
+  block(above: 0.5em)[
+    #body
+  ]
 }
 
 /// The base item for resume entries. This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
@@ -330,16 +434,31 @@
 /// - location (string): The location of the resume entry
 /// - date (string): The date of the resume entry, this can be a range (e.g. "Jan 2020 - Dec 2020")
 /// - description (content): The body of the resume entry
+/// - title-link (string): The link to use for the title (can be none)
+/// - accent-color (color): Override the accent color of the resume-entry
+/// - location-color (color): Override the default color of the "location" for a resume entry.
 #let resume-entry(
   title: none,
   location: "",
   date: "",
   description: "",
+  title-link: none,
   accent-color: default-accent-color,
+  location-color: default-location-color,
 ) = {
-  pad[
-    #justified-header(title, location)
-    #secondary-justified-header(description, date)
+  let title-content
+  if type(title-link) == "string" {
+    title-content = link(title-link)[#title]
+  } else {
+    title-content = title
+  }
+  block(above: 1em, below: 0.65em)[
+    #pad[
+      #justified-header(title-content, location)
+      #if description != "" or date != "" [
+        #secondary-justified-header(description, date)
+      ]
+    ]
   ]
 }
 
@@ -395,12 +514,25 @@
 
 /// ---- Coverletter ----
 
+#let default-closing(lang_data) = {
+  align(bottom)[
+    #text(weight: "light", style: "italic")[ #linguify(
+        "attached",
+        from: lang_data,
+      )#sym.colon #linguify("curriculum-vitae", from: lang_data)]
+  ]
+}
+
 /// Cover letter template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
 /// This coverletter template is designed to be used with the resume template.
-/// - author (content): Structure that takes in all the author's information
+/// - author (content): Structure that takes in all the author's information. The following fields are required: firstname, lastname, positions. The following fields are used if available: email, phone, github, linkedin, orcid, address, website.
 /// - profile-picture (image): The profile picture of the author. This will be cropped to a circle and should be square in nature.
-/// - date (date): The date the cover letter was created
+/// - date (datetime): The date the cover letter was created. This will default to the current date.
 /// - accent-color (color): The accent color of the cover letter
+/// - language (string): The language of the cover letter, defaults to "en". See lang.toml for available languages
+/// - font (array): The font families of the cover letter
+/// - show-footer (boolean): Whether to show the footer or not
+/// - closing (content): The closing of the cover letter. This defaults to "Attached Curriculum Vitae". You can set this to `none` to show the default closing or remove it completely.
 /// - body (content): The body of the cover letter
 #let coverletter(
   author: (:),
@@ -408,6 +540,9 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
   accent-color: default-accent-color,
   language: "en",
+  font: ("Source Sans Pro", "Source Sans 3"),
+  show-footer: true,
+  closing: none,
   body,
 ) = {
   if type(accent-color) == "string" {
@@ -416,14 +551,21 @@
 
   // language data
   let lang_data = toml("lang.toml")
+  
+  if closing == none {
+    closing = default-closing(lang_data)
+  }
 
-  set document(
-    author: author.firstname + " " + author.lastname,
-    title: "cover-letter",
-  )
+  show: body => context {
+    set document(
+      author: author.firstname + " " + author.lastname,
+      title: lflib._linguify("cover-letter", lang: language, from: lang_data).ok,
+    )
+    body
+  }
 
   set text(
-    font: "Source Sans Pro",
+    font: font,
     lang: language,
     size: 11pt,
     fill: color-darkgray,
@@ -433,34 +575,22 @@
   set page(
     paper: "a4",
     margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
-    footer: [
-      #set text(
-        fill: gray,
-        size: 8pt,
-      )
-      #__justify_align_3[
-        #smallcaps[#date]
-      ][
-        #smallcaps[
-          #author.firstname
-          #author.lastname
-          #sym.dot.c
-          #linguify("cover-letter", from: lang_data)
-        ]
-      ][
-        #counter(page).display()
-      ]
-    ],
+    footer: if show-footer [#__coverletter_footer(
+        author,
+        language,
+        date,
+        lang_data,
+      )] else [],
     footer-descent: 0pt,
   )
 
   // set paragraph spacing
-  show par: set block(
-    above: 0.75em,
-    below: 0.75em,
+  set par(
+    spacing: 0.75em,
+    justify: true,
   )
   set par(justify: true)
-
+  
   set heading(
     numbering: none,
     outlined: false,
@@ -491,8 +621,16 @@
             style: "normal",
             font: "Roboto",
           )
-          #text(accent-color, weight: "thin")[#author.firstname]
-          #text(weight: "bold")[#author.lastname]
+          #if language == "zh" or language == "ja" [
+            #text(
+              accent-color,
+              weight: "thin",
+            )[#author.firstname]#text(weight: "bold")[#author.lastname]
+          ] else [
+            #text(accent-color, weight: "thin")[#author.firstname]
+            #text(weight: "bold")[#author.lastname]
+          ]
+          
         ]
       ]
     ]
@@ -518,7 +656,9 @@
       fill: color-gray,
     )
     align(right)[
-      #author.address
+      #if ("address" in author) [
+        #author.address
+      ]
     ]
   }
 
@@ -538,26 +678,36 @@
           #stack(
             dir: ltr,
             spacing: 0.5em,
-            if author.phone != none [
+            if ("phone" in author) [
               #phone-icon
               #box[#text(author.phone)]
               #separator
             ],
-            if author.email != none [
+            if ("email" in author) [
               #email-icon
               #box[#link("mailto:" + author.email)[#author.email]]
             ],
-            if author.github != none [
+            if ("github" in author) [
               #separator
               #github-icon
               #box[#link("https://github.com/" + author.github)[#author.github]]
             ],
-            if author.linkedin != none [
+            if ("linkedin" in author) [
               #separator
               #linkedin-icon
               #box[
                 #link("https://www.linkedin.com/in/" + author.linkedin)[ #author.lastname]
               ]
+            ],
+            if ("orcid" in author) [
+              #separator
+              #orcid-icon
+              #box[#link("https://orcid.org/" + author.orcid)[#author.orcid]]
+            ],
+            if ("website" in author) [
+              #separator
+              #website-icon
+              #box[#link(author.website)[#author.website]]
             ],
           )
         ]
@@ -587,17 +737,15 @@
       ],
     )
   }
-
-  let letter-conclusion = {
+  
+  let signature = {
     align(bottom)[
       #pad(bottom: 2em)[
-        #text(weight: "light")[#linguify("sincerely", from: lang_data)#sym.comma] \
-        #text(weight: "bold")[#author.firstname #author.lastname] \ \
-        #text(weight: "light", style: "italic")[
-          #linguify(
-            "attached",
+        #text(weight: "light")[#linguify(
+            "sincerely",
             from: lang_data,
-          )#sym.colon #linguify("curriculum-vitae", from: lang_data)]
+          )#sym.comma] \
+        #text(weight: "bold")[#author.firstname #author.lastname] \ \
       ]
     ]
   }
@@ -606,7 +754,8 @@
   letter-heading
   body
   linebreak()
-  letter-conclusion
+  signature
+  closing
 }
 
 /// Cover letter heading that takes in the information for the hiring company and formats it properly.
@@ -637,7 +786,8 @@
 /// Letter heading for a given job position and addressee.
 /// - job-position (string): The job position you are applying for
 /// - addressee (string): The person you are addressing the letter to
-#let letter-heading(job-position: "", addressee: "") = {
+/// - dear (string): optional field for redefining the "dear" variable
+#let letter-heading(job-position: "", addressee: "", dear: "") = {
   let lang_data = toml("lang.toml")
 
   // TODO: Make this adaptable to content
@@ -646,7 +796,12 @@
   ]
   pad(top: 1em, bottom: 1em)[
     #text(weight: "light", fill: color-gray)[
-      #linguify("dear", from: lang_data) #addressee,
+      #if dear == "" [
+        #linguify("dear", from: lang_data)
+      ] else [
+        #dear
+      ]
+      #addressee,
     ]
   ]
 }

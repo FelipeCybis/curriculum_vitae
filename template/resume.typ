@@ -1,12 +1,17 @@
-#import "@preview/modern-cv:0.3.1": *
+#import "@preview/modern-cv:0.7.0": *
 
 #show: resume.with(
   author: (
     firstname: "John",
     lastname: "Smith",
     email: "js@example.com",
+    homepage: "https://example.com",
     phone: "(+1) 111-111-1111",
     github: "DeveloperPaul123",
+    twitter: "typstapp",
+    scholar: "",
+    orcid: "0000-0000-0000-000X",
+    birth: "January 1, 1990",
     linkedin: "Example",
     address: "111 Example St. Example City, EX 11111",
     positions: (
@@ -18,6 +23,7 @@
   date: datetime.today().display(),
   language: "en",
   colored-headers: true,
+  show-footer: false,
 )
 
 = Experience
@@ -27,6 +33,7 @@
   location: "Example City, EX",
   date: "2019 - Present",
   description: "Example, Inc.",
+  title-link: "https://github.com/DeveloperPaul123",
 )
 
 #resume-item[
@@ -40,6 +47,16 @@
   location: "Example City, EX",
   date: "2011 - 2019",
   description: "Previous Company, Inc.",
+)
+
+#resume-item[
+  // content doesn't have to be bullet points
+  #lorem(72)
+]
+
+#resume-entry(
+  title: "Intern",
+  location: "Example City, EX",
 )
 
 #resume-item[
