@@ -1,3 +1,4 @@
+#import "@preview/alexandria:0.2.2": *
 #import "lib.typ": *
 #import "resume/experience.typ": experiences
 #import "resume/teaching.typ": teaching
@@ -5,7 +6,21 @@
 #import "resume/skills.typ": skills
 #import "resume/extras.typ": extras
 
+#show: alexandria(prefix: "x:", read: path => read(path))
+#show: alexandria(prefix: "y:", read: path => read(path))
 #let default-accent-color = rgb("#250875")
+
+#let google-scholar-icon = box(fa-icon("google-scholar", fill: color-darknight))
+#let bluesky-icon = box(fa-icon("bluesky", fill: color-darknight))
+
+#let custom-items = (
+  (text: github-icon, link: "https://github.com/FelipeCybis"),
+  (text: [#h(-12pt) #linkedin-icon], link: "https://www.linkedin.com/in/felipe-cybis-pereira-52ba0214b/"),
+  (text: [#h(-16pt) #google-scholar-icon], link: "https://scholar.google.fr/citations?user=7DGis1wAAAAJ&hl=fr&oi=ao"),
+  (text: [#h(-19pt) #orcid-icon], link: "https://orcid.org/0009-0009-6124-0466"),
+  (text: [#h(-20pt) #bluesky-icon], link:
+  "https://bsky.app/profile/felipecybis.bsky.social"),
+)
 
 #show: resume.with(
   author: (
@@ -13,93 +28,54 @@
     lastname: "Cybis Pereira",
     email: "felipe.cybispereira@gmail.com",
     phone: "(+33) 6 02 17 62 62",
-    website: "felipecybis.github.io",
-    github: "FelipeCybis",
-    linkedin: "felipe-cybis-pereira-52ba0214b",
-    orcid: "0009-0009-6124-0466",
-    bluesky: "felipecybis.bsky.social",
-    address: "55 rue Greneta, 75002, Paris, France",
-    positions: ("currently post-doc in Physics for Medicine Paris",),
+    address: v(-12pt),
+    homepage: "felipecybis.github.io",
+    custom: custom-items,
+    positions: ([#v(2pt)Currently post-doc in Physics for Medicine Paris],),
   ),
+    profile-picture: none,
   date: datetime.today().display(),
+  show-footer: false,
   language: "en",
   colored-headers: true,
+accent-color: default-accent-color,
 )
-#show heading.where(level: 1): it => [
-  #set text(
-    size: 16pt,
-    weight: "bold",
-  )
 
-  #align(left)[
-    #text[#strong[#text(default-accent-color)[#it.body]]]
-    #box(width: 1fr, line(length: 100%))
-  ]
-  #v(-4pt)
-]
-
-#v(-1pt)
-= Research Experience` `#fa-flask()` `
-
+#v(-4pt)
+= Research` `#fa-flask()` `
+#v(-3pt)
 #experiences
 
-#v(-1pt)
-= Teaching experience` `#fa-chalkboard-teacher()` `
-
+#v(-6pt)
+= Teaching` `#fa-chalkboard-teacher()` `
+#v(-3pt)
 #teaching
 
-#v(-1pt)
-= Education background` ` #fa-graduation-cap()` `
-
+#v(-6pt)
+= Education` ` #fa-graduation-cap()` `
+#v(-3pt)
 #education
 
-#v(2pt)
+#v(-1pt)
 = Skills` `#fa-globe-americas()` `
-
+#v(-3pt)
 #skills
 
-#v(1pt)
+#v(-6pt)
 = Hobbies` `#fa-user-group()` `
-
+#v(-3pt)
 #extras
 
 #pagebreak()
 
-#show link: it => {
-  set text(fill: blue)
-  it
-}
-#show cite: it => {
-  if it.form == "full" {
-    show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
-    show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
-    it
-  } else {
-    set text(fill: cite-color)
-    it
-  }
-}
-
 #[
-  #set text(size: 0pt)
-  #bibliography("ref.bib", style: "apa", title:"Publications and preprints")
-
+  #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
+  #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+  #bibliographyx("paper.bib", prefix: "x:", style: "apa", title:"Publications and preprints", full: true)
 ]
 
-#v(-0.7em)
-- #cite(<cybispereiraSpeedVascularPatterns2025>, form: "full")
-- #cite(<lemeur-dieboltRobustFunctionalUltrasound2025>, form: "full")
-- #cite(<zuckerPhysiofUSTissuemotionBased2025>, form: "full")
-
-
-= Posters in International Conferences
-- #cite(<pereiraFunctionalUltrasoundTools2024>, form: "full")
-- #cite(<cybispereiraChronicFunctionalUltrasounda>, form: "full")
-- #cite(<cybispereiraChronicFunctionalUltrasound>, form: "full")
-- #cite(<huangDecipheringPreciseCFos2024>, form: "full")
-- #cite(<bourgeaisramburUltrafastUltrasoundImaging2023>, form: "full")
-- #text(default-accent-color, weight: "extrabold")[Felipe Cybis Pereira], Nathalie
-  Ialy-Radio, Soumee Bhattacharya, Bruno-Félix Osmanski, Sophie Pezet, Mickael Tanter.
-  Chronic functional ultrasound imaging combined with behaviour tracking on freely
-  moving rats. _fUSbrain 2022_.
-
+#[
+  #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
+  #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+  #bibliographyx("conferences.bib", prefix: "y:", style: "apa", title: "International conferences", full: true)
+]

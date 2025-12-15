@@ -282,13 +282,6 @@
   ]
 
   show heading.where(level: 2): it => {
-    set text(
-      color-darkgray,
-      size: 12pt,
-      style: "normal",
-      weight: "bold",
-    )
-    it.body
     set text(color-darkgray, size: 12pt, style: "normal", weight: "bold")
     it.body
   }

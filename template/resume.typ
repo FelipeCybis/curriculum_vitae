@@ -38,7 +38,7 @@
   show-footer: false,
   show-address-icon: true,
   paper-size: "us-letter",
-  contact-items-separator: box[#h(2pt)#text("|")#h(2pt)],
+  // contact-items-separator: box[#h(2pt)#text("|")#h(2pt)],
 )
 
 = Experience
