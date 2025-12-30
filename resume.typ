@@ -71,11 +71,13 @@ accent-color: default-accent-color,
 #[
   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
   #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+  #show link: set text(blue)
   #bibliographyx("paper.bib", prefix: "x:", style: "apa", title:"Publications and preprints", full: true)
 ]
 
 #[
   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
   #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+  #show link: set text(blue)
   #bibliographyx("conferences.bib", prefix: "y:", style: "apa", title: "International conferences", full: true)
 ]
