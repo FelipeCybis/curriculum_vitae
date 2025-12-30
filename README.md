@@ -136,8 +136,8 @@ I (https://github.com/FelipeCybis) use this fork to hold my personal CV,
 compiled on the `gh-pages` branch. The workflow is as follows.
 
 ```bash
-typst compile resume.pdf
-git add resume.pdf
+typst compile resume.typ
+git add -f resume.pdf
 git stash
 git switch gh-pages
 git checkout stash -- resume.pdf

@@ -55,3 +55,12 @@ format:
 [doc('Run ci suite')]
 [group('dev')]
 ci: test doc
+
+publish:
+    typst compile resume.typ
+    git add -f resume.pdf
+    git stash
+    git switch gh-pages
+    git checkout stash -- resume.pdf
+    git commit -m "compile pdf"
+    git push
