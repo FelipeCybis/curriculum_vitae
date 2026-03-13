@@ -2,11 +2,12 @@
 
 #let experiences = {
   resume-entry(
-    title: "Physics for Medicine Paris, Inserm, ESPCI Paris, PSL, CNRS",
-    title-link: "https://www.physicsformedicine.espci.fr/",
+    title: "PhD, neuroscience, spatial navigation and functional ultrasound imaging",
+    title-link: "https://theses.fr/2025UPSLS011",
     location: "Paris, France",
     date: "2021-2025",
-    description: [#v(-3pt) Doctoral degree],
+    description: [#v(-3pt) #link("https://www.physicsformedicine.espci.fr/", [@ Physics
+        for Medicine Paris, Inserm, ESPCI Paris, PSL, CNRS])],
   )
   resume-item[
     #v(-2pt)
@@ -20,11 +21,11 @@
 
   v(-3pt)
   resume-entry(
-    title: "Harvard University, Rogulja Lab at Harvard Medical School",
-    title-link: "http://roguljalab.hms.harvard.edu",
+    title: "Research Intern, neurobiology and ethology",
     location: "Boston, USA",
     date: "2019-2019",
-    description: [#v(-3pt) Research Intern],
+    description: [#v(-3pt) #link("http://roguljalab.hms.harvard.edu", [@ Rogulja Lab,
+        Harvard Medical School, Harvard University])],
   )
   resume-item[
     #v(-2pt)
@@ -35,11 +36,13 @@
 
   v(-3pt)
   resume-entry(
-    title: "ICONEUS, Real-time portable functional ultrasound small animal neuroimaging",
-    title-link: "https://iconeus.com",
+    title: "R&D Intern, functional ultrasound imaging",
     location: "Paris, France",
     date: "2018-2018",
-    description: [#v(-3pt) R&D Intern],
+    description: [#v(-3pt) #link(
+        "https://iconeus.com",
+        [@ ICONEUS, real-time portable functional ultrasound small animal neuroimaging],
+      )],
   )
   resume-item[
     #v(-2pt)

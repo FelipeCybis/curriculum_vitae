@@ -3,11 +3,10 @@
 
 #let teaching = {
   resume-entry(
-    title: link("https://www.espci.psl.eu/en/")[ESPCI Paris - PSL University],
+    title: [Teacher assistant: Practical work in physiology and neuroscience],
     location: "Paris, France",
     date: "2022-2024",
-    description: [#v(-2pt)Teacher assistant in the Physiology practical work for the 2nd year
-      students],
+    description: [#v(-2pt)#link("https://www.espci.psl.eu/en/")[@ ESPCI Paris - PSL University]],
   )
   resume-item[
     #v(-3pt)
@@ -18,15 +17,15 @@
 
   v(-3pt)
   resume-entry(
-    title: link("https://neuropsi.cnrs.fr/en/homepage/")[NeuroPSI - Paris-Saclay Institute of Neuroscience],
+    title: [Teacher assistant: Methods for measuring and actuating neuronal activity],
     location: "Saclay, France",
     date: "2023-2025",
-    description: [#v(-2pt)Teacher assistant in the Masters 2 for Computational Neurosciences and
-      Neuroengineering],
+    description: [#v(-2pt)#link(
+        "https://neuropsi.cnrs.fr/en/homepage/",
+      )[@ M2 Computational Neurosciences and Neuroengineering, NeuroPSI - Paris-Saclay Institute of Neuroscience]],
   )
   resume-item[
     #v(-3pt)
-    - #underline(offset: 2pt)[Course unit:] Methods for measuring and actuating neuronal activity.
     - #underline(offset: 2pt)[Professor:] Isabelle Ferezou, PhD.
     - Principles on Ultrafast Ultrasound, functional Ultrasound imaging and Ultrasound
       Localization Microscopy.
