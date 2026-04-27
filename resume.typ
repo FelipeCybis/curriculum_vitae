@@ -28,10 +28,9 @@
     lastname: "Cybis Pereira",
     email: "felipe.cybispereira@gmail.com",
     phone: "(+33) 6 02 17 62 62",
-    address: v(-12pt),
     homepage: "felipecybis.github.io",
     custom: custom-items,
-    positions: ([#v(2pt)Currently post-doc in Physics for Medicine Paris],),
+    positions: ([],),
   ),
     profile-picture: none,
   date: datetime.today().display(),
@@ -41,29 +40,28 @@
 accent-color: default-accent-color,
 )
 
-#v(-4pt)
+#v(-8pt)
 = Research` `#fa-flask()` `
 #v(-3pt)
 #experiences
 
-#v(-6pt)
+#v(-10pt)
 = Teaching` `#fa-chalkboard-teacher()` `
 #v(-3pt)
 #teaching
 
-#v(-6pt)
+#v(-10pt)
 = Education` ` #fa-graduation-cap()` `
 #v(-3pt)
 #education
 
-#v(-1pt)
+#v(-10pt)
 = Skills` `#fa-globe-americas()` `
 #v(-3pt)
 #skills
 
-#v(-6pt)
+#v(-10pt)
 = Hobbies` `#fa-user-group()` `
-#v(-3pt)
 #extras
 
 #pagebreak()

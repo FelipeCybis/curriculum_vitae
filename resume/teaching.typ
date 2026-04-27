@@ -22,7 +22,7 @@
     date: "2023-2025",
     description: [#v(-2pt)#link(
         "https://neuropsi.cnrs.fr/en/homepage/",
-      )[@ M2 Computational Neurosciences and Neuroengineering, NeuroPSI - Paris-Saclay Institute of Neuroscience]],
+      )[@ M2 Computational Neurosciences and Neuroengineering, NeuroPSI]],
   )
   resume-item[
     #v(-3pt)
