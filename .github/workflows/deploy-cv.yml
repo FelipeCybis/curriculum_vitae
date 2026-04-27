@@ -1,0 +1,46 @@
+name: Build and deploy CV
+
+on:
+  push:
+    branches: [my-cv]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install fonts
+        run: |
+          chmod +x ./scripts/install-fontawesome
+          chmod +x ./scripts/install-roboto
+          chmod +x ./scripts/install-source-sans
+          ./scripts/install-fontawesome
+          ./scripts/install-roboto
+          ./scripts/install-source-sans
+
+      - name: Setup typst
+        uses: typst-community/setup-typst@v5
+
+      - name: Compile resume
+        run: typst compile resume.typ resume.pdf
+
+      - name: Publish to gh-pages
+        run: |
+          cp resume.pdf /tmp/resume.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          git switch gh-pages
+          cp /tmp/resume.pdf resume.pdf
+          git add resume.pdf
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "compile pdf"
+          git push origin gh-pages
