@@ -1,4 +1,4 @@
-#import "@preview/modern-cv:0.9.0": *
+#import "@preview/modern-cv:0.10.0": *
 
 #show: coverletter.with(
   author: (
@@ -7,7 +7,7 @@
     email: "js@gmail.com",
     homepage: "https://example.com",
     phone: "(+1) 111-111-1111",
-    github: "DeveloperPaul123",
+    github: "ptsouchlos",
     linkedin: "John Smith",
     address: "111 Example St. Apt. 111, Example City, EX 11111",
     positions: (
@@ -39,14 +39,8 @@
 
 #letter-heading(job-position: "Software Engineer", addressee: "Sir or Madame")
 
-#coverletter-content[
-  #lorem(100)
-]
+#lorem(100)
 
-#coverletter-content[
-  #lorem(90)
-]
+#lorem(90)
 
-#coverletter-content[
-  #lorem(110)
-]
+#lorem(110)

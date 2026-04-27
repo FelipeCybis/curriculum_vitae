@@ -1,6 +1,4 @@
-#import "@local/modern-cv:0.9.0": *
-
-#fa-version("6")
+#import "@local/modern-cv:0.10.0": *
 
 // setup the document like we do for the resume
 #let font = "Source Sans 3"
@@ -47,9 +45,9 @@
 
 #justified-header("Modern CV", "A modern curriculum vitae template")
 
-#secondary-justified-header("Created by", "DeveloperPaul123")
+#secondary-justified-header("Created by", "ptsouchlos")
 
-#github-link("DeveloperPaul123/modern-cv")
+#github-link("ptsouchlos/modern-cv")
 #linkedin-icon
 #github-icon
 #twitter-icon

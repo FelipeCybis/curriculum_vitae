@@ -1,4 +1,5 @@
 root := justfile_directory()
+set windows-shell := ["pwsh", "-NoLogo", "-Command"]
 
 export TYPST_ROOT := root
 
@@ -15,7 +16,7 @@ doc:
 [doc('Run test suite. Requires tytanic.')]
 [group('dev')]
 test *args: install
-    tt run {{ args }} --use-system-fonts --no-fail-fast
+    tt run {{ args }} --use-system-fonts --no-fail-fast --warnings promote
 
 [doc('Update test cases. Requires tytanic.')]
 [group('dev')]
