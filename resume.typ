@@ -68,9 +68,9 @@ accent-color: default-accent-color,
   #bibliography("paper.bib", style: "cell-sorted-by-date.csl", title:"Publications and preprints", full: true)
 ]
 
-// #[
-//   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
-//   #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
-//   #show link: set text(blue)
-//   #bibliography("conferences.bib", style: "apa", title: "International conferences", full: true)
-// ]
+#[
+  #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
+  #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+  #show link: set text(blue)
+  #bibliography("conferences.bib", style: "apa", title: "International conferences", full: true)
+]
