@@ -27,7 +27,7 @@
   resume-item[
     #v(-3pt)
     - #underline(offset: 2pt)[Professor:] Isabelle Ferezou, PhD.
-    - Principles on Ultrafast Ultrasound, functional Ultrasound imaging and Ultrasound
+    - Principles on Ultrafast Ultrasound, functional ultrasound imaging and Ultrasound
       Localization Microscopy.
   ]
 }

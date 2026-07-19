@@ -8,9 +8,9 @@
     - *Scientific Python*: Neuroimaging (#underline(offset: 2pt)[Nipy suite],
       #underline(offset: 2pt)[BrainGlobe]), Machine learning (#underline(offset: 2pt)[scikit-learn]),
       Visualization (#underline(offset: 2pt)[VTK], #underline(offset: 2pt)[PyVista]).
-    - *General Python Packaging*: Documentation and examples, unit testing, linting and
+    - *General Python Packaging*: Publishing, documentation and examples, unit testing, linting and
       formatting, pre-commit hooks.
-    - *Version control*: Intermediate to advanced usage of *Git*, *GitHub* and *GitHub
+    - *Version control*: Advanced usage of *Git*, *GitHub* and *GitHub
       Actions*.
     - *Prototyping*: Intermediate knowledge in *Arduino* and *Raspberry Pi*.
     - Intermediate knowledge on *Rust* (and *Rust bindings for Python*), *Lua*,

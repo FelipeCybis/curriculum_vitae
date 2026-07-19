@@ -1,4 +1,3 @@
-#import "@preview/alexandria:0.2.2": *
 #import "lib.typ": *
 #import "resume/experience.typ": experiences
 #import "resume/teaching.typ": teaching
@@ -6,8 +5,6 @@
 #import "resume/skills.typ": skills
 #import "resume/extras.typ": extras
 
-#show: alexandria(prefix: "x:", read: path => read(path))
-#show: alexandria(prefix: "y:", read: path => read(path))
 #let default-accent-color = rgb("#250875")
 
 #let google-scholar-icon = box(fa-icon("google-scholar", fill: color-darknight))
@@ -40,42 +37,40 @@
 accent-color: default-accent-color,
 )
 
-#v(-8pt)
+#v(-10pt)
 = Research` `#fa-flask()` `
 #v(-3pt)
 #experiences
 
-#v(-10pt)
+#v(-11pt)
 = Teaching` `#fa-chalkboard-teacher()` `
 #v(-3pt)
 #teaching
 
-#v(-10pt)
+#v(-11pt)
 = Education` ` #fa-graduation-cap()` `
 #v(-3pt)
 #education
 
-#v(-10pt)
+#v(-11pt)
 = Skills` `#fa-globe-americas()` `
 #v(-3pt)
 #skills
 
-#v(-10pt)
+#v(-11pt)
 = Hobbies` `#fa-user-group()` `
 #extras
 
-#pagebreak()
-
 #[
   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
   #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
   #show link: set text(blue)
-  #bibliographyx("paper.bib", prefix: "x:", style: "apa", title:"Publications and preprints", full: true)
+  #bibliography("paper.bib", style: "cell-sorted-by-date.csl", title:"Publications and preprints", full: true)
 ]
 
-#[
-  #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
-  #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
-  #show link: set text(blue)
-  #bibliographyx("conferences.bib", prefix: "y:", style: "apa", title: "International conferences", full: true)
-]
+// #[
+//   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
+//   #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+//   #show link: set text(blue)
+//   #bibliography("conferences.bib", style: "apa", title: "International conferences", full: true)
+// ]
