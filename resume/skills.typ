@@ -5,10 +5,10 @@
   v(10pt, weak: true)
   resume-item[
     *Programming*
-    - *Scientific Python*: Neuroimaging (#underline(offset: 2pt)[Nipy suite],
-      #underline(offset: 2pt)[BrainGlobe]), Machine learning (#underline(offset: 2pt)[scikit-learn]),
-      Visualization (#underline(offset: 2pt)[VTK], #underline(offset: 2pt)[PyVista]).
-    - *General Python Packaging*: Publishing, documentation and examples, unit testing, linting and
+    - *Scientific Python*: Neuroimaging (#underline(offset: 2pt)[*Nipy suite*],
+      #underline(offset: 2pt)[*BrainGlobe*]), ML (#underline(offset: 2pt)[*scikit-learn*], #underline(offset: 2pt)[*PyTorch*]),
+      Visualization (#underline(offset: 2pt)[*napari*], #underline(offset: 2pt)[*VTK*], #underline(offset: 2pt)[*PyVista*]).
+    - *Packaging*: Publishing, API documentation and examples, unit testing, linting and
       formatting, pre-commit hooks.
     - *Version control*: Advanced usage of *Git*, *GitHub* and *GitHub
       Actions*.

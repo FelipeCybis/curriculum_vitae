@@ -27,10 +27,10 @@
     #v(-2pt)
     - #underline(offset: 2pt)[Adviser:] Sophie Pezet, PI, and Mickaël Tanter, PI.
     - #underline(offset: 2pt)[Title:] Revealing vascular patterns in the spatial navigation system with functional ultrasound imaging.
-    - #underline(offset: 2pt)[Techniques:] *Functional ultrasound imaging - Spatial navigation - Rodent's brain imaging - Animal behavior and cognition - Python - 3D design conception (CAD) - Ultrafast Ultrasound*
     - #underline(offset: 2pt)[Recognition:] #link(
         "https://www.linkedin.com/feed/update/urn:li:activity:7392241985757294592/",
       )[PariSanté Campus PhD Award 2025 (Innovation & Industry)]
+    - #underline(offset: 2pt)[Techniques:] *Functional ultrasound imaging - Python - General Linear Modeling - Brain decoding - Rodent handling, behavior and cognition - 3D design conception (CAD)*
   ]
 
   v(-3pt)
@@ -45,7 +45,7 @@
     #v(-2pt)
     - #underline(offset: 2pt)[Adviser:] Alexandra Vaccaro, PhD, and Dragana Rogulja, PI.
     - #underline(offset: 2pt)[Focus:] Insights in sleep deprivation in _Drosophila melanogaster_.
-    - #underline(offset: 2pt)[Techniques:] *_Drosophila melanogaster_ rearing - Immunostaining - Confocal microscopy - Ethological analysis - Survival and Dietary assays - Drosophila Activity Monitoring (DAM) system*
+    - #underline(offset: 2pt)[Techniques:] *_Drosophila melanogaster_ rearing - MATLAB - Immunostaining - Confocal microscopy - Survival assays*
   ]
 
   // v(-3pt)

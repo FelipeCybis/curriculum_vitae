@@ -1,3 +1,4 @@
+#import "@preview/use-academicons:0.1.0": ai-lattes
 #import "lib.typ": *
 #import "resume/experience.typ": experiences
 #import "resume/teaching.typ": teaching
@@ -9,6 +10,7 @@
 
 #let google-scholar-icon = box(fa-icon("google-scholar", fill: color-darknight))
 #let bluesky-icon = box(fa-icon("bluesky", fill: color-darknight))
+#let lattes-icon = box(ai-lattes())
 
 #let custom-items = (
   (text: github-icon, link: "https://github.com/FelipeCybis"),
@@ -17,6 +19,8 @@
   (text: [#h(-19pt) #orcid-icon], link: "https://orcid.org/0009-0009-6124-0466"),
   (text: [#h(-20pt) #bluesky-icon], link:
   "https://bsky.app/profile/felipecybis.bsky.social"),
+  (text: [#h(-22pt) #lattes-icon], link:
+  "http://lattes.cnpq.br/1972092614216576"),
 )
 
 #show: resume.with(
@@ -27,7 +31,8 @@
     phone: "(+33) 6 02 17 62 62",
     homepage: "felipecybis.github.io",
     custom: custom-items,
-    positions: ([],),
+    positions: ([Data Science -- Neuroscience Engineer - Research Software Engineer],),
+    // positions: ([],),
   ),
     profile-picture: none,
   date: datetime.today().display(),
@@ -38,9 +43,14 @@ accent-color: default-accent-color,
 )
 
 #v(-10pt)
-= Research` `#fa-flask()` `
+= Experience` `#fa-flask()` `
 #v(-3pt)
 #experiences
+
+#v(-11pt)
+= Skills` `#fa-globe-americas()` `
+#v(-3pt)
+#skills
 
 #v(-11pt)
 = Teaching` `#fa-chalkboard-teacher()` `
@@ -51,11 +61,6 @@ accent-color: default-accent-color,
 = Education` ` #fa-graduation-cap()` `
 #v(-3pt)
 #education
-
-#v(-11pt)
-= Skills` `#fa-globe-americas()` `
-#v(-3pt)
-#skills
 
 #v(-11pt)
 = Hobbies` `#fa-user-group()` `

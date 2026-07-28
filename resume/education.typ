@@ -18,12 +18,12 @@
         "https://www.bme-paris.com/program/master-2/bioengineering-and-innovation-in-neurosciences-bin/",
       )[@ BioMedical Engineering Master]],
   )
-  v(-2pt)
-  resume-item[
-    - Scholarship student for the PSL Graduate Program in Life Sciences.
-  ]
-
-  v(-4pt)
+  // v(-2pt)
+  // resume-item[
+  //   - Scholarship student for the PSL Graduate Program in Life Sciences.
+  // ]
+  //
+  v(-3pt)
   resume-entry(
     title: [Engineering Degree (Biotechnology major)],
     location: "Paris, France",
@@ -31,12 +31,12 @@
     description: [#v(-2pt)#link("https://www.espci.psl.eu/en/")[@ ESPCI Paris - PSL]
     ],
   )
-  v(-2pt)
-  resume-item[
-    - _Michelin Excellency_ scholarship student in a double degree program with UFSC University in Brazil.
-  ]
-
-  v(-4pt)
+  // v(-2pt)
+  // resume-item[
+  //   - _Michelin Excellency_ scholarship student in a double degree program with UFSC University in Brazil.
+  // ]
+  //
+  v(-3pt)
   resume-entry(
     title: [Bachelor's Degree in Chemical Engineering],
     location: "Florianópolis, Brazil",
