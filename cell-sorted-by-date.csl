@@ -126,6 +126,14 @@
           <text variable="publisher" prefix=" at "/>
           <text macro="access" prefix=", "/>
         </else-if>
+        <else-if type="thesis">
+          <group delimiter=" " prefix=" " suffix=".">
+            <text macro="title" suffix="."/>
+            <!-- bibtex `school` lands in `authority`, not `publisher` -->
+            <text variable="authority" font-style="italic" suffix="."/>
+            <text variable="genre"/>
+          </group>
+        </else-if>
         <else-if type="dataset software" match="any">
           <group delimiter=". " prefix=" ">
             <text macro="title"/>

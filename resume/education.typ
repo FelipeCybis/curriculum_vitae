@@ -10,11 +10,12 @@
       )[#link("https://psl.eu/")[@ Université Paris Sciences et Lettres (PSL)]]],
   )
 
+  v(-4pt)
   resume-entry(
     title: [Master's Degree in Bioengineering and Neurosciences],
     location: "Paris, France",
     date: "2020-2021",
-    description: [#v(-3pt)#link(
+    description: [#v(-4pt)#link(
         "https://www.bme-paris.com/program/master-2/bioengineering-and-innovation-in-neurosciences-bin/",
       )[@ BioMedical Engineering Master]],
   )
@@ -23,7 +24,7 @@
   //   - Scholarship student for the PSL Graduate Program in Life Sciences.
   // ]
   //
-  v(-3pt)
+  v(-4pt)
   resume-entry(
     title: [Engineering Degree (Biotechnology major)],
     location: "Paris, France",
@@ -36,11 +37,11 @@
   //   - _Michelin Excellency_ scholarship student in a double degree program with UFSC University in Brazil.
   // ]
   //
-  v(-3pt)
+  v(-4pt)
   resume-entry(
     title: [Bachelor's Degree in Chemical Engineering],
     location: "Florianópolis, Brazil",
     date: "2014-2020",
-    description: [#v(-2pt)#link("https://en.ufsc.br")[@ Universidade Federal de Santa Catarina (UFSC)]],
+    description: [#v(-3pt)#link("https://en.ufsc.br")[@ Universidade Federal de Santa Catarina (UFSC)]],
   )
 }

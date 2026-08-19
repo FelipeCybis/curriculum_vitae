@@ -20,9 +20,11 @@ jobs:
       - name: Install fonts
         run: |
           chmod +x ./scripts/install-fontawesome
+          chmod +x ./scripts/install-academicons
           chmod +x ./scripts/install-roboto
           chmod +x ./scripts/install-source-sans
           ./scripts/install-fontawesome
+          ./scripts/install-academicons
           ./scripts/install-roboto
           ./scripts/install-source-sans
 

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+wget -O ~/academicons.zip 'https://github.com/jpswalsh/academicons/archive/refs/tags/v1.9.6.zip'
+unzip -j ~/academicons.zip 'fonts/*.ttf' -d ~/.local/share/fonts
+rm ~/academicons.zip
+
+fc-cache -f -v

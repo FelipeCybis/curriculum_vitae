@@ -31,7 +31,8 @@
     phone: "(+33) 6 02 17 62 62",
     homepage: "felipecybis.github.io",
     custom: custom-items,
-    positions: ([Data Science -- Neuroscience Engineer - Research Software Engineer],),
+    positions: ([Data Science -- Neuroscience Engineer - Research Software
+    Engineer#v(-3pt)],),
     // positions: ([],),
   ),
     profile-picture: none,
@@ -42,27 +43,27 @@
 accent-color: default-accent-color,
 )
 
-#v(-10pt)
+#v(-13pt)
 = Experience` `#fa-flask()` `
-#v(-3pt)
+#v(-4pt)
 #experiences
 
-#v(-11pt)
+#v(-13pt)
 = Skills` `#fa-globe-americas()` `
-#v(-3pt)
+#v(-4pt)
 #skills
 
-#v(-11pt)
+#v(-13pt)
 = Teaching` `#fa-chalkboard-teacher()` `
-#v(-3pt)
+#v(-4pt)
 #teaching
 
-#v(-11pt)
+#v(-13pt)
 = Education` ` #fa-graduation-cap()` `
-#v(-3pt)
+#v(-4pt)
 #education
 
-#v(-11pt)
+#v(-13pt)
 = Hobbies` `#fa-user-group()` `
 #extras
 
