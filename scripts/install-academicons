@@ -2,7 +2,11 @@
 set -euo pipefail
 
 wget -O ~/academicons.zip 'https://github.com/jpswalsh/academicons/archive/refs/tags/v1.9.6.zip'
-unzip -j ~/academicons.zip 'fonts/*.ttf' -d ~/.local/share/fonts
+mkdir -p ~/academicons-fonts
+unzip ~/academicons.zip -d ~/academicons-fonts
+mkdir -p ~/.local/share/fonts
+find ~/academicons-fonts -type f -name "*.ttf" -exec cp {} ~/.local/share/fonts \;
 rm ~/academicons.zip
+rm -rf ~/academicons-fonts
 
 fc-cache -f -v
