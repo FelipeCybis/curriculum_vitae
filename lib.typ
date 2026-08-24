@@ -1,6 +1,10 @@
 #import "@preview/fontawesome:0.6.0": *
 #import "@preview/linguify:0.5.0": *
 
+#let link-with-icon(dest, body) = {
+  link(dest, [#body #text(size: 0.7em, weight: "light")[#h(0.3em)#fa-link()]])
+}
+
 // const color
 #let color-darknight = rgb("#131A28")
 #let color-darkgray = rgb("#333333")

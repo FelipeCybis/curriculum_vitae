@@ -17,10 +17,8 @@
   (text: [#h(-12pt) #linkedin-icon], link: "https://www.linkedin.com/in/felipe-cybis-pereira-52ba0214b/"),
   (text: [#h(-16pt) #google-scholar-icon], link: "https://scholar.google.fr/citations?user=7DGis1wAAAAJ&hl=fr&oi=ao"),
   (text: [#h(-19pt) #orcid-icon], link: "https://orcid.org/0009-0009-6124-0466"),
-  (text: [#h(-20pt) #bluesky-icon], link:
-  "https://bsky.app/profile/felipecybis.bsky.social"),
-  (text: [#h(-22pt) #lattes-icon], link:
-  "http://lattes.cnpq.br/1972092614216576"),
+  (text: [#h(-20pt) #bluesky-icon], link: "https://bsky.app/profile/felipecybis.bsky.social"),
+  (text: [#h(-22pt) #lattes-icon], link: "http://lattes.cnpq.br/1972092614216576"),
 )
 
 #show: resume.with(
@@ -31,16 +29,18 @@
     phone: "(+33) 6 02 17 62 62",
     homepage: "felipecybis.github.io",
     custom: custom-items,
-    positions: ([Data Science -- Neuroscience Engineer - Research Software
-    Engineer#v(-3pt)],),
+    positions: (
+      [Data Science -- Neuroscience Engineer - Research Software
+        Engineer#v(-3pt)],
+    ),
     // positions: ([],),
   ),
-    profile-picture: none,
+  profile-picture: none,
   date: datetime.today().display(),
   show-footer: false,
   language: "en",
   colored-headers: true,
-accent-color: default-accent-color,
+  accent-color: default-accent-color,
 )
 
 #v(-13pt)
@@ -71,7 +71,7 @@ accent-color: default-accent-color,
   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
   #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
   #show link: set text(blue)
-  #bibliography("paper.bib", style: "cell-sorted-by-date.csl", title:"Publications and preprints", full: true)
+  #bibliography("paper.bib", style: "cell-sorted-by-date.csl", title: "Publications and preprints", full: true)
 ]
 
 #[
