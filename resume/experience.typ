@@ -11,7 +11,7 @@
       )],
   )
   resume-item[
-    #v(-2pt)
+    #v(-3pt)
     - #underline(offset: 2pt)[Adviser:] Sophie Pezet, PI, and Mickaël Tanter, PI.
     - #underline(offset: 2pt)[Focus:] Data analysis for functional ultrasound imaging
       (fUSI) and Ultrasound Localization Microscopy (ULM).
@@ -19,7 +19,7 @@
       Visualization - Python - General Linear Modeling - Skeletonization*
   ]
 
-  v(-3pt)
+  v(-4pt)
   resume-entry(
     title: [Google Summer of Code 2025],
     title-link: "https://summerofcode.withgoogle.com/",
@@ -29,7 +29,7 @@
         InVesalius])],
   )
   resume-item[
-    #v(-2pt)
+    #v(-3pt)
     - #underline(offset: 2pt)[Mentors:] Thiago F. Moraes, and Paulo Henrique Junqueira
       Amorim.
     - #underline(offset: 2pt)[Focus:]
@@ -39,7 +39,7 @@
       Cython - Scientific open-source software development*
   ]
 
-  v(-3pt)
+  v(-4pt)
   resume-entry(
     title: [PhD, acoustics, neuroscience, spatial navigation and functional ultrasound
       imaging],
@@ -51,7 +51,7 @@
       )],
   )
   resume-item[
-    #v(-2pt)
+    #v(-3pt)
     - #underline(offset: 2pt)[Adviser:] Sophie Pezet, PI, and Mickaël Tanter, PI.
     - #underline(offset: 2pt)[Title:] #link-with-icon(
         "https://theses.fr/2025UPSLS011",
@@ -65,7 +65,7 @@
       General Linear Modeling - Brain decoding - Rodent handling, behavior and cognition - 3D design conception (CAD)*
   ]
 
-  v(-3pt)
+  v(-4pt)
   resume-entry(
     title: "Research Intern, neurobiology and ethology",
     location: "Boston, USA",
@@ -74,7 +74,7 @@
         Harvard Medical School, Harvard University])],
   )
   resume-item[
-    #v(-2pt)
+    #v(-3pt)
     - #underline(offset: 2pt)[Adviser:] Alexandra Vaccaro, PhD, and Dragana Rogulja, PI.
     - #underline(offset: 2pt)[Focus:] Insights in sleep deprivation in _Drosophila melanogaster_.
     - #underline(offset: 2pt)[Techniques:] *_Drosophila melanogaster_ rearing - MATLAB - Immunostaining - Confocal microscopy - Survival assays*
