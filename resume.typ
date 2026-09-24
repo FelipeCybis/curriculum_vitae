@@ -1,4 +1,5 @@
 #import "@preview/use-academicons:0.1.0": ai-lattes
+#import "@preview/flagada:1.0.1" : *
 #import "lib.typ": *
 #import "resume/experience.typ": experiences
 #import "resume/teaching.typ": teaching
@@ -13,7 +14,8 @@
 #let lattes-icon = box(ai-lattes())
 
 #let custom-items = (
-  (text: github-icon, link: "https://github.com/FelipeCybis"),
+  (text: [Speaks #h(3pt) #flag("US", height: 0.9em) #flag("FR", height: 0.9em) #flag("BR", height: 0.9em)]),
+  (text: [#h(-2pt) #github-icon], link: "https://github.com/FelipeCybis"),
   (text: [#h(-12pt) #linkedin-icon], link: "https://www.linkedin.com/in/felipe-cybis-pereira-52ba0214b/"),
   (text: [#h(-16pt) #google-scholar-icon], link: "https://scholar.google.fr/citations?user=7DGis1wAAAAJ&hl=fr&oi=ao"),
   (text: [#h(-19pt) #orcid-icon], link: "https://orcid.org/0009-0009-6124-0466"),
@@ -43,7 +45,7 @@
   accent-color: default-accent-color,
 )
 
-#v(-13pt)
+#v(-14pt)
 = Experience` `#fa-flask()` `
 #v(-4pt)
 #experiences
@@ -53,7 +55,7 @@
 #v(-4pt)
 #skills
 
-#v(-13pt)
+#v(-16pt)
 = Teaching` `#fa-chalkboard-teacher()` `
 #v(-4pt)
 #teaching
@@ -76,7 +78,7 @@
 
 #[
   #show regex("Cybis Pereira, F."): set text(default-accent-color, weight: "extrabold")
-  #show regex("Pereira, F. C."): set text(default-accent-color, weight: "extrabold")
+  #show regex("Pereira, F.C."): set text(default-accent-color, weight: "extrabold")
   #show link: set text(blue)
-  #bibliography("conferences.bib", style: "apa", title: "International conferences", full: true)
+  #bibliography("conferences.bib", style: "cell-sorted-by-date.csl", title: "International conferences", full: true)
 ]

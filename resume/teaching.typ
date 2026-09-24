@@ -3,9 +3,24 @@
 
 #let teaching = {
   resume-entry(
+    title: [Teacher assistant: Bootcamp - Introduction to Python],
+    location: "Paris, France",
+    date: "2026",
+    description: [#v(-2pt)#link(
+        "https://master.learningplanetinstitute.org/en",
+      )[@ M1 AIRE, Learning Planet Institute]],
+  )
+  resume-item[
+    #v(-3pt)
+    // - #underline(offset: 2pt)[Professor:] Isabelle Ferezou, PhD.
+    - From variables, functions and lists to basic numpy, matplotlib, pandas.
+  ]
+
+  v(-3pt)
+  resume-entry(
     title: [Teacher assistant: Methods for measuring and actuating neuronal activity],
     location: "Saclay, France",
-    date: "2023-2025",
+    date: "2023-2026",
     description: [#v(-2pt)#link(
         "https://neuropsi.cnrs.fr/en/homepage/",
       )[@ M2 Computational Neurosciences and Neuroengineering, NeuroPSI]],

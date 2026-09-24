@@ -138,7 +138,7 @@
     }
     // Then modify the selection to use the constant:
     #box(inset: inset)[
-      #if ("link" in item) {
+      #if ("link" in item and item.link != none) {
         link(link-prefix + item.link)[#item.text]
       } else {
         item.text

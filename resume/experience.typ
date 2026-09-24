@@ -23,7 +23,7 @@
   resume-entry(
     title: [Google Summer of Code 2025],
     title-link: "https://summerofcode.withgoogle.com/",
-    location: "Paris, France",
+    location: "Campinas, Brazil",
     date: "2025",
     description: [#v(-3pt) #link-with-icon("https://invesalius.github.io/", [@
         InVesalius])],

@@ -2,9 +2,8 @@
 #import "latex_symbol.typ": LATEX
 
 #let skills = {
-  v(10pt, weak: true)
+  v(12pt, weak: true)
   resume-item[
-    *Programming*
     - *Scientific Python*: Neuroimaging (#underline(offset: 2pt)[*Nipy suite*],
       #underline(offset: 2pt)[*BrainGlobe*]), ML (#underline(offset: 2pt)[*scikit-learn*], #underline(offset: 2pt)[*PyTorch*]),
       Visualization (#underline(offset: 2pt)[*napari*], #underline(offset: 2pt)[*VTK*], #underline(offset: 2pt)[*PyVista*]).
@@ -16,10 +15,5 @@
     - Intermediate knowledge on *Rust* (and *Rust bindings for Python*), *Lua*,
       *core-utils* and *shell-scripting*, *JavaScript*.
     - Intermediate knowledge on text editing softwares such as *#LATEX* and *Typst*.
-  ]
-  v(8pt, weak: true)
-  resume-item[
-    *Spoken languages*: *English* (fluent), *French* (fluent), *Portuguese* (native),
-    Spanish (beginner)
   ]
 }
